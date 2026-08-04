@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloud-app-permission-scanner"
+version = "1.0.0"
+description = "Scan compiled .class files for AWS SDK v2 service client calls and generate an IAM permissions policy JSON."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Arkadiusz Zieliński", email = "arekzielinskiable@gmail.com" },
+    { name = "Adam Rożuk", email = "ar10qwe@gmail.com" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Security",
+]
+keywords = ["aws", "iam", "policy", "sdk", "java", "classfile"]
+
+# No runtime dependencies — stdlib only!
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/syndaez/cloud-app-permission-scanner"
+Repository = "https://github.com/syndaez/cloud-app-permission-scanner"
+Issues = "https://github.com/syndaez/cloud-app-permission-scanner/issues"
+
+[project.scripts]
+# This creates the CLI command:
+#   $ cloud-app-permission-scanner --root . --out policy.json
+cloud-app-permission-scanner = "cloud_app_permission_scanner.runner:main"
+
+[tool.setuptools.packages.find]
+include = ["cloud_app_permission_scanner*"]
