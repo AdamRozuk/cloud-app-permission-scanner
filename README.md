@@ -63,3 +63,17 @@ cloud-app-permission-scanner --root . --exclude-re '.*(generated|test).*'
 # combine both filters
 cloud-app-permission-scanner --root . --include-re '.*com/example/.*' --exclude-re '.*generated.*'
 ```
+
+## Development
+
+Install the package with its development tools, then run the checks that CI runs:
+
+```bash
+pip install -e ".[dev]"
+ruff check . && ruff format --check .
+mypy
+pytest
+```
+
+The end-to-end tests compile the Java samples in `tests/fixtures/java` with
+`javac`, so they need a JDK on `PATH`. Without one they are skipped.
