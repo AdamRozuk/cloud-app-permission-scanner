@@ -34,7 +34,10 @@ class ScanConfig:
         ap.add_argument(
             "--include-re",
             default=None,
-            help="Regex for classfile paths to include. If set, only matching paths are scanned.",
+            help=(
+                "Regex for classfile paths to include. "
+                "If set, only matching paths are scanned."
+            ),
         )
         ap.add_argument(
             "--exclude-re",
@@ -58,7 +61,11 @@ class ScanConfig:
         ap.add_argument("--debug", action="store_true", help="Print progress info.")
         args = ap.parse_args(argv)
 
-        for flag_name, val in [("--include-re", args.include_re), ("--exclude-re", args.exclude_re)]:
+        flags = [
+            ("--include-re", args.include_re),
+            ("--exclude-re", args.exclude_re),
+        ]
+        for flag_name, val in flags:
             if val:
                 try:
                     re.compile(val)

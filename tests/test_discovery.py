@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 from cloud_app_permission_scanner.config import ScanConfig
 from cloud_app_permission_scanner.discovery import ClassFileFinder
@@ -29,9 +29,7 @@ def test_exclude_re(tmp_path: Path) -> None:
 
 def test_include_re(tmp_path: Path) -> None:
     make_tree(tmp_path, ["target/classes/A.class", "other/B.class"])
-    assert found(tmp_path, include_re=r"target/classes") == {
-        "target/classes/A.class"
-    }
+    assert found(tmp_path, include_re=r"target/classes") == {"target/classes/A.class"}
 
 
 def test_package_filter_with_regex(tmp_path: Path) -> None:

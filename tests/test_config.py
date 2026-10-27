@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import pytest
 
 from cloud_app_permission_scanner.config import ScanConfig
