@@ -30,13 +30,11 @@ class ClassScanner:
         if not candidates:
             logger.error(
                 "No .class files matched filters. "
-                "Adjust --root / --include-path-substr / --package-substr."
+                "Adjust --root / --include-re / --exclude-re."
             )
             return result
 
-        work = [
-            cf for cf in candidates if ClassFileFinder.contains_sdk_reference(cf)
-        ]
+        work = [cf for cf in candidates if ClassFileFinder.contains_sdk_reference(cf)]
         result.scanned_count = len(work)
 
         if self._config.debug:
