@@ -30,6 +30,11 @@ keywords = ["aws", "iam", "policy", "sdk", "java", "classfile"]
 # No runtime dependencies — stdlib only!
 dependencies = []
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
 [project.urls]
 Homepage = "https://github.com/syndaez/cloud-app-permission-scanner"
 Repository = "https://github.com/syndaez/cloud-app-permission-scanner"
@@ -42,3 +47,7 @@ cloud-app-permission-scanner = "cloud_app_permission_scanner.runner:main"
 
 [tool.setuptools.packages.find]
 include = ["cloud_app_permission_scanner*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
