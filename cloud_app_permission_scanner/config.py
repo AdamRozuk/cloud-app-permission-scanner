@@ -60,9 +60,7 @@ class ScanConfig:
             action="store_true",
             help="Print discovered service/client/op list to stdout.",
         )
-        ap.add_argument(
-            "--debug", action="store_true", help="Print progress info."
-        )
+        ap.add_argument("--debug", action="store_true", help="Print progress info.")
         args = ap.parse_args(argv)
         return cls(
             root=Path(args.root),
