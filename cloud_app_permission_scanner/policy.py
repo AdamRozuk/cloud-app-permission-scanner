@@ -54,9 +54,7 @@ class IAMPolicyBuilder:
                 )
                 target.add(action)
             else:
-                actions_by_prefix[prefix].add(
-                    f"{prefix}:{to_pascal(call.operation)}"
-                )
+                actions_by_prefix[prefix].add(f"{prefix}:{to_pascal(call.operation)}")
 
         return actions_by_prefix, s3_bucket_actions, s3_object_actions
 

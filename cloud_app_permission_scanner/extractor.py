@@ -33,7 +33,7 @@ class JavapExtractor:
         except FileNotFoundError:
             raise RuntimeError(
                 "javap not found. Ensure a JDK is installed and javap is on PATH."
-            )
+            ) from None
         except OSError as exc:
             logger.warning("javap failed for %s: %s", classfile, exc)
             return ""

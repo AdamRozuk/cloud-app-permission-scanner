@@ -29,3 +29,17 @@ pip install git+https://github.com/syndaez/cloud-app-permission-scanner.git
 ```bash
 cloud-app-permission-scanner --help
 ```
+
+## Development
+
+Install the package with its development tools, then run the checks that CI runs:
+
+```bash
+pip install -e ".[dev]"
+ruff check . && ruff format --check .
+mypy
+pytest
+```
+
+The end-to-end tests compile the Java samples in `tests/fixtures/java` with
+`javac`, so they need a JDK on `PATH`. Without one they are skipped.

@@ -34,9 +34,7 @@ class ClassScanner:
             )
             return result
 
-        work = [
-            cf for cf in candidates if ClassFileFinder.contains_sdk_reference(cf)
-        ]
+        work = [cf for cf in candidates if ClassFileFinder.contains_sdk_reference(cf)]
         result.scanned_count = len(work)
 
         if self._config.debug:
